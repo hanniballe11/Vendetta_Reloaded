@@ -39,3 +39,4 @@ Icon
 *.exe
 *.bin
 *.o
+*.layout
