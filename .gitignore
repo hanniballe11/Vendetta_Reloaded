@@ -36,6 +36,6 @@ Icon
 .Trashes
 
 # Others files
-.exe
-.bin
-.o
+*.exe
+*.bin
+*.o
