@@ -15,6 +15,7 @@
 #include "Node.hpp"
 #include "Collision.hpp"
 #include "Terrain.hpp"
+#include "SFGUI/SFGUI.hpp"
 
 sf::VideoMode loadVideoMode();
 

@@ -1625,7 +1625,7 @@
 	<iostream>
 	"Directory.hpp"
 
-1408220146 source:c:\users\erwan\documents\github\vendetta_reloaded\main.cpp
+1408269704 source:c:\users\erwan\documents\github\vendetta_reloaded\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	<SFML/System.hpp>
@@ -1642,6 +1642,7 @@
 	"Node.hpp"
 	"Collision.hpp"
 	"Terrain.hpp"
+	"SFGUI/SFGUI.hpp"
 
 1359305697 c:\users\erwan\documents\github\vendetta_reloaded\player.hpp
 	"Character.hpp"
@@ -1681,6 +1682,354 @@
 1359307670 source:c:\users\erwan\documents\github\vendetta_reloaded\system.cpp
 	"System.hpp"
 
-1359339065 source:c:\users\erwan\documents\github\vendetta_reloaded\terrain.cpp
+1408269290 source:c:\users\erwan\documents\github\vendetta_reloaded\terrain.cpp
 	"Terrain.hpp"
+
+1385127494 c:\sfgui\include\sfgui\sfgui.hpp
+	<SFGUI/Bin.hpp>
+	<SFGUI/Box.hpp>
+	<SFGUI/Button.hpp>
+	<SFGUI/Context.hpp>
+	<SFGUI/Desktop.hpp>
+	<SFGUI/Engine.hpp>
+	<SFGUI/Entry.hpp>
+	<SFGUI/Fixed.hpp>
+	<SFGUI/Label.hpp>
+	<SFGUI/Range.hpp>
+	<SFGUI/Scale.hpp>
+	<SFGUI/Scrollbar.hpp>
+	<SFGUI/ScrolledWindow.hpp>
+	<SFGUI/Table.hpp>
+	<SFGUI/Window.hpp>
+	<SFGUI/ToggleButton.hpp>
+	<SFGUI/CheckButton.hpp>
+	<SFGUI/RadioButton.hpp>
+	<SFGUI/Viewport.hpp>
+	<SFGUI/ProgressBar.hpp>
+	<SFGUI/Separator.hpp>
+	<SFGUI/Frame.hpp>
+	<SFGUI/Image.hpp>
+	<SFGUI/Alignment.hpp>
+	<SFGUI/Notebook.hpp>
+	<SFGUI/Spinner.hpp>
+	<SFGUI/ComboBox.hpp>
+	<SFGUI/Canvas.hpp>
+	<SFGUI/SpinButton.hpp>
+	<SFGUI/Renderer.hpp>
+
+1385127494 c:\sfgui\include\sfgui\bin.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Container.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\config.hpp
+	<iostream>
+
+1385127494 c:\sfgui\include\sfgui\container.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Widget.hpp>
+	<memory>
+	<vector>
+
+1385127494 c:\sfgui\include\sfgui\widget.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Object.hpp>
+	<memory>
+	<SFGUI/RenderQueue.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Window/Event.hpp>
+	<map>
+	<string>
+	<cstdint>
+
+1385127494 c:\sfgui\include\sfgui\object.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Signal.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\signal.hpp
+	<SFGUI/Config.hpp>
+	<map>
+	<memory>
+	<functional>
+
+1385127494 c:\sfgui\include\sfgui\renderqueue.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Primitive.hpp>
+	<memory>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/OpenGL.hpp>
+	<vector>
+
+1385127494 c:\sfgui\include\sfgui\primitive.hpp
+	<SFGUI/Config.hpp>
+	<memory>
+	<SFGUI/Signal.hpp>
+	<SFGUI/RendererViewport.hpp>
+	<SFML/Graphics.hpp>
+	<SFML/OpenGL.hpp>
+
+1385127494 c:\sfgui\include\sfgui\rendererviewport.hpp
+	<SFGUI/Config.hpp>
+	<memory>
+	<SFML/Graphics.hpp>
+
+1368000882 c:\sfml\include\sfml\opengl.hpp
+	<SFML/Config.hpp>
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+
+1385127494 c:\sfgui\include\sfgui\box.hpp
+	<SFGUI/Container.hpp>
+	<memory>
+	<list>
+	<cstdint>
+
+1385127494 c:\sfgui\include\sfgui\button.hpp
+	<SFGUI/Bin.hpp>
+	<SFGUI/Image.hpp>
+	<memory>
+	<SFML/System/String.hpp>
+
+1385127494 c:\sfgui\include\sfgui\image.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Widget.hpp>
+	<SFGUI/Misc.hpp>
+	<memory>
+	<SFML/Graphics/Texture.hpp>
+
+1385127494 c:\sfgui\include\sfgui\misc.hpp
+	<SFGUI/Config.hpp>
+	<memory>
+	<SFML/System.hpp>
+
+1385127494 c:\sfgui\include\sfgui\context.hpp
+	<SFGUI/Config.hpp>
+	<memory>
+	<SFGUI/Engine.hpp>
+	<SFGUI/Engines/BREW.hpp>
+
+1385127494 c:\sfgui\include\sfgui\engine.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Widget.hpp>
+	<SFGUI/Selector.hpp>
+	<SFGUI/ResourceManager.hpp>
+	<SFGUI/Parsers/ThemeParser/Parse.hpp>
+	<memory>
+	<SFML/Graphics/Drawable.hpp>
+	<string>
+	<map>
+	<list>
+	<stdexcept>
+	"Engine.inl"
+
+1385127494 c:\sfgui\include\sfgui\selector.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Widget.hpp>
+	<memory>
+	<string>
+	<stdexcept>
+	<cstdint>
+
+1385127494 c:\sfgui\include\sfgui\resourcemanager.hpp
+	<SFGUI/Config.hpp>
+	<map>
+	<string>
+	<memory>
+	"ResourceManager.inl"
+
+1385127494 c:\sfgui\include\sfgui\resourcemanager.inl
+
+1385127494 c:\sfgui\include\sfgui\parsers\themeparser\parse.hpp
+	<SFGUI/Config.hpp>
+	<string>
+	<vector>
+
+1385127494 c:\sfgui\include\sfgui\engine.inl
+	<sstream>
+	<iomanip>
+	<typeinfo>
+
+1385127494 c:\sfgui\include\sfgui\engines\brew.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Engine.hpp>
+
+1385127494 c:\sfgui\include\sfgui\desktop.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Context.hpp>
+	<SFGUI/Engine.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/View.hpp>
+	<memory>
+	<string>
+	<deque>
+	"Desktop.inl"
+
+1385127494 c:\sfgui\include\sfgui\desktop.inl
+
+1385127494 c:\sfgui\include\sfgui\entry.hpp
+	<SFGUI/Widget.hpp>
+	<memory>
+	<SFML/System/String.hpp>
+	<SFML/System/Clock.hpp>
+
+1385127494 c:\sfgui\include\sfgui\fixed.hpp
+	<SFGUI/Container.hpp>
+	<memory>
+	<map>
+
+1385127494 c:\sfgui\include\sfgui\label.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Widget.hpp>
+	<SFGUI/Misc.hpp>
+	<memory>
+	<SFML/System/String.hpp>
+
+1385127494 c:\sfgui\include\sfgui\range.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Widget.hpp>
+	<SFGUI/Adjustment.hpp>
+	<memory>
+	<cstdint>
+
+1385127494 c:\sfgui\include\sfgui\adjustment.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Object.hpp>
+	<SFGUI/Signal.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\scale.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Range.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\scrollbar.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Range.hpp>
+	<memory>
+	<SFML/System/Clock.hpp>
+
+1385127494 c:\sfgui\include\sfgui\scrolledwindow.hpp
+	<SFGUI/Bin.hpp>
+	<SFGUI/Adjustment.hpp>
+	<SFGUI/Scrollbar.hpp>
+	<SFGUI/Viewport.hpp>
+	<memory>
+	<cstdint>
+
+1385127494 c:\sfgui\include\sfgui\viewport.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Bin.hpp>
+	<SFGUI/Adjustment.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\table.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/TableCell.hpp>
+	<SFGUI/TableOptions.hpp>
+	<SFGUI/Container.hpp>
+	<memory>
+	<list>
+	<vector>
+
+1385127494 c:\sfgui\include\sfgui\tablecell.hpp
+	<SFGUI/Widget.hpp>
+	<SFGUI/Container.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1385127494 c:\sfgui\include\sfgui\tableoptions.hpp
+
+1385127494 c:\sfgui\include\sfgui\window.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Bin.hpp>
+	<memory>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/System/String.hpp>
+	<cstdint>
+
+1385127494 c:\sfgui\include\sfgui\togglebutton.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Button.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\checkbutton.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/ToggleButton.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\radiobutton.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/CheckButton.hpp>
+	<memory>
+	<set>
+
+1385127494 c:\sfgui\include\sfgui\progressbar.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Widget.hpp>
+	<memory>
+	<cstdint>
+	<SFML/System/String.hpp>
+
+1385127494 c:\sfgui\include\sfgui\separator.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Widget.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\frame.hpp
+	<SFGUI/Bin.hpp>
+	<SFGUI/Misc.hpp>
+	<memory>
+	<SFML/System/String.hpp>
+
+1385127494 c:\sfgui\include\sfgui\alignment.hpp
+	<SFGUI/Bin.hpp>
+	<SFGUI/Misc.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\notebook.hpp
+	<SFGUI/Container.hpp>
+	<memory>
+	<deque>
+	<cstdint>
+
+1385127494 c:\sfgui\include\sfgui\spinner.hpp
+	<SFGUI/Widget.hpp>
+	<memory>
+	<SFML/System.hpp>
+
+1385127494 c:\sfgui\include\sfgui\combobox.hpp
+	<SFGUI/Bin.hpp>
+	<SFGUI/Scrollbar.hpp>
+	<memory>
+	<SFML/System/String.hpp>
+	<vector>
+
+1385127494 c:\sfgui\include\sfgui\canvas.hpp
+	<SFGUI/Config.hpp>
+	<SFGUI/Widget.hpp>
+	<SFGUI/RendererViewport.hpp>
+	<memory>
+
+1385127494 c:\sfgui\include\sfgui\spinbutton.hpp
+	<SFGUI/Entry.hpp>
+	<SFGUI/Adjustment.hpp>
+	<memory>
+	<SFML/System/String.hpp>
+	<SFML/System/Clock.hpp>
+
+1385127494 c:\sfgui\include\sfgui\renderer.hpp
+	<SFGUI/Config.hpp>
+	<memory>
+	<SFGUI/Primitive.hpp>
+	<SFML/Graphics.hpp>
+	<SFML/OpenGL.hpp>
+	<vector>
+	<map>
+	<list>
+	<cstdint>
 

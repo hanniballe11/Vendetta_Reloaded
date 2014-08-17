@@ -10,7 +10,7 @@
 Terrain::Terrain() : sf::RectangleShape(){
 }
 Terrain::Terrain(const sf::Texture *Img,const sf::Vector2f &Size) : sf::RectangleShape(Size){
-    setPosition(0,0);
+    //setPosition(0,0);
     setTexture(Img);
     setTextureRect(sf::IntRect(0,0,Size.x, Size.y));
 }

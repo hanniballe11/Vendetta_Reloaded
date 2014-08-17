@@ -22,6 +22,7 @@
 					<Add library="C:\SFML\lib\libsfml-network-d.a" />
 					<Add library="C:\SFML\lib\libsfml-system-d.a" />
 					<Add library="C:\SFML\lib\libsfml-window-d.a" />
+					<Add library="C:\SFGUI\lib\libsfgui.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -41,16 +42,19 @@
 					<Add library="C:\SFML\lib\libsfml-main.a" />
 					<Add library="C:\SFML\lib\libsfml-network.a" />
 					<Add library="C:\SFML\lib\libsfml-system.a" />
+					<Add library="C:\SFGUI\lib\libsfgui.a" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-Wall" />
+			<Add option="-std=c++11" />
 			<Add option="-fexceptions" />
 			<Add directory="C:/SFML/include" />
+			<Add directory="C:/SFGUI/include" />
 		</Compiler>
 		<Linker>
 			<Add directory="C:/SFML/include" />
+			<Add directory="C:/SFGUI/include" />
 		</Linker>
 		<Unit filename="Building.cpp" />
 		<Unit filename="Building.hpp" />
