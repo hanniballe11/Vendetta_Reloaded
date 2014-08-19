@@ -37,6 +37,7 @@ Character::Character() : Entity(){
 	base_attack=5.0;
 	base_defense=0.0;
 	show_bar=true;
+	m_owner=0;
 
 	life_bar.setSize(sf::Vector2f(getTextureRect().width, 2));
 	life_bar.setPosition(getPosition().x, getPosition().y+getTextureRect().height-2);
@@ -83,6 +84,8 @@ Character::Character(const sf::Texture &Img, const sf::Vector2f &Position) : Ent
 	base_attack=5.0;
 	base_defense=0.0;
 	show_bar=true;
+	m_owner=0;
+
 	life_bar.setSize(sf::Vector2f(getTextureRect().width, 2));
 	life_bar.setPosition(getPosition().x, getPosition().y+getTextureRect().height-2);
 	life_bar.setFillColor(sf::Color(255,0,0));
@@ -180,21 +183,21 @@ void Character::update(){
 	if(is_going_to){if(current_goto.x==-1 && current_goto.y==-1){is_going_to=false;}}
 	else if(is_following){
 		current_goto.x=m_target->getPosition().x; current_goto.y=m_target->getPosition().y;
-		if(is_attacking){
-			if(m_target->getType()==CHARACTER || m_target->getType()==PLAYER){
-				if(getGlobalBounds().intersects(m_target->getGlobalBounds())){
+		if(is_attacking && getGlobalBounds().intersects(m_target->getGlobalBounds())){
+			if(m_target->getType()==CHARACTER || m_target->getType()==PLAYER || m_target->getType()==BUILDING){
 				    current_goto.x=-1;
 					current_goto.y=-1;
-                    if(!dynamic_cast<Character*>(m_target)->isDead()){
-                        if(stamina==stamina_max){dynamic_cast<Character*>(m_target)->takeDamage(base_attack); stamina=0;}}}}
-			else if(m_target->getType()==BUILDING){
-				if(getGlobalBounds().intersects(m_target->getGlobalBounds())){
-					is_following=false;
-					current_goto.x=-1;
-					current_goto.y=-1;
-					if(dynamic_cast<Building*>(m_target)->getIntegrity()!=0){
-						if(stamina==stamina_max){dynamic_cast<Building*>(m_target)->setIntegrity(dynamic_cast<Building*>(m_target)->getIntegrity()-10); stamina=0;}}}}
-			else{;}}}
+					if(m_target->getType()==BUILDING){
+                        Building *temp_target=dynamic_cast<Building*>(m_target);
+                        if(temp_target->getIntegrity()>0){
+                            if(stamina==stamina_max){temp_target->setIntegrity(temp_target->getIntegrity()-10); stamina=0;}}
+                        else{is_attacking=!is_attacking;}}
+                    else{
+                        Character *temp_target=dynamic_cast<Character*>(m_target);
+                        if(!temp_target->isDead()){
+                            if(stamina==stamina_max){temp_target->takeDamage(base_attack); stamina=0;}}
+                        else{is_attacking=!is_attacking;}
+                    }}}}
 	else if(is_attacking){
 		if(m_target->getType()==CHARACTER || m_target->getType()==PLAYER){
 				if(getGlobalBounds().intersects(m_target->getGlobalBounds()) && !dynamic_cast<Character*>(m_target)->isDead()){
@@ -270,3 +273,6 @@ void Character::draw(sf::RenderTarget *sys){
 		sys->draw(mana_bar);
 		sys->draw(stamina_bar);}
 }
+
+Building* Character::getOwner(){return m_owner;}
+void Character::setOwner(Building* owner){if(owner){m_owner=owner; owner->setOwner(this);}}

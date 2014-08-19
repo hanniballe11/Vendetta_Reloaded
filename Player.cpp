@@ -14,7 +14,7 @@ Player::Player() : Character(){
 	e_type=PLAYER;
 }
 Player::Player(const sf::Texture &Img, const sf::Vector2f &Position) : Character(Img, Position){
-	man_move_x=false;
+    man_move_x=false;
 	man_move_y=false;
 	is_blocked=false;
 	e_type=PLAYER;

@@ -27,13 +27,14 @@ Node::~Node(){
 	delete m_parent;
 }
 void Node::addNode(Node *node){
-	m_nodes.push_back(node);
 	node->setParent(this);
+	node->setWindow(m_sys);
+	m_nodes.push_back(node);
 	m_priority.push_back(TypeNode);
 }
 void Node::addEntity(Entity *entity){
-	m_entities.push_back(entity);
 	entity->setParent(this);
+	m_entities.push_back(entity);
 	m_priority.push_back(TypeEntity);
 }
 void Node::clear(){

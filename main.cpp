@@ -68,12 +68,12 @@ int main()
     buildings.push_back(Building(manager.getTexture("home1")));
     buildings[0].setPosition(300.f,300.f);
     buildings[0].setEntryPoint(buildings[0].getTextureRect().width/2, buildings[0].getTextureRect().height/2);
-    buildings[0].setOwner(&players[0]);
+    players[0].setOwner(&buildings[0]);
     std::cout<<"OK"<<std::endl;
 
     std::cout<<" Reussite"<<std::endl;
     std::cout<<"Nodes.....";
-    Node n_buildings(&window), n_characters(&window), n_players(&window), n_effects(&window), n_interface(&window);
+    Node n_buildings, n_characters, n_players, n_effects, n_interface;
     window.getRootNode()->addNode(&n_buildings);
     window.getRootNode()->addNode(&n_characters);
     window.getRootNode()->addNode(&n_players);

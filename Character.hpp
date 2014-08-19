@@ -53,10 +53,13 @@ public:
 	void takeDamage(double damage);
 	bool isDead();
 	void virtual draw(sf::RenderTarget *sys);
+	Building* getOwner();
+	void setOwner(Building *owner);
 
 protected:
 	bool is_moving, is_going_to, show_bar, is_following, is_attacking, is_enterring, is_repairing, is_dead, is_indoor;
 	Entity *m_target;
+	Building *m_owner;
 	unsigned int current_anim, counter_anim;
 	float speed;
 	double life, stamina, mana, life_max, stamina_max, mana_max, regen_stamina, regen_life, regen_mana, base_attack, base_defense;
