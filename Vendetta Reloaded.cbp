@@ -13,6 +13,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
@@ -53,8 +54,8 @@
 			<Add directory="C:/SFGUI/include" />
 		</Compiler>
 		<Linker>
-			<Add directory="C:/SFML/include" />
-			<Add directory="C:/SFGUI/include" />
+			<Add directory="C:/SFML/lib" />
+			<Add directory="C:/SFGUI/lib" />
 		</Linker>
 		<Unit filename="Building.cpp" />
 		<Unit filename="Building.hpp" />

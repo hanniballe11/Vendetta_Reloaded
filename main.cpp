@@ -2,7 +2,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 #include <iostream>
-#include <cstdlib>
+//#include <cstdlib>
+#include <stdlib.h>
 #include <vector>
 #include <stdarg.h>
 
@@ -16,8 +17,6 @@
 #include "Collision.hpp"
 #include "Terrain.hpp"
 #include "SFGUI/SFGUI.hpp"
-
-sf::VideoMode loadVideoMode();
 
 int main()
 {
@@ -87,7 +86,24 @@ int main()
     std::cout<<" Reussite"<<std::endl;
     std::cout<<"Input.....";
     std::cout<<" Reussite"<<std::endl;
+    std::cout<<"Gui......";
 
+    sfg::SFGUI Gui;
+    auto frame=sfg::Window::Create();
+    sfg::Desktop desktop;
+    auto layout_v = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
+    auto label_life = sfg::Label::Create("Life : ");
+    auto label_stamina = sfg::Label::Create("Stamina : ");
+    auto label_mana = sfg::Label::Create("Mana : ");
+    layout_v->Pack(label_life);
+    layout_v->Pack(label_stamina);
+    layout_v->Pack(label_mana);
+    frame->SetTitle( "Perso Stats" );
+    frame->Add(layout_v);
+    desktop.Add(frame);
+    //frame->GetSignal(sfg::Widget::OnMouseMove).Connect(std::bind( &test, label));
+    //frame->GetSignal(sfg::Widget::OnMouseLeave).Connect(std::bind( &test2, label));
+    std::cout<<" Reussite"<<std::endl;
     std::cout<<"Fin Initialisation"<<std::endl;
 
     window.initializeCol();
@@ -96,6 +112,7 @@ int main()
         sf::Event event;
         for(int i=0; i<sprites.size(); i++){if(!sprites.at(i).isMoving()){sprites.at(i).goTo(sf::Vector2f(float (rand() % 801), float (rand() % 601)));}}
         while (window.pollEvent(event)){
+             desktop.HandleEvent( event );
             if (event.type == sf::Event::Closed){window.close();}
             if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::E)){
             	effects.push_back(new Effect(manager.getTexture("slash"),6,5, sf::Vector2f(250.f,250.f)));
@@ -162,6 +179,12 @@ int main()
         window.clear();
         terrain.draw(&window);
         window.draw();
+        label_life->SetText("HP : "+std::to_string(players.at(0).getLife()));
+        label_stamina->SetText("Stamina : "+std::to_string(players.at(0).getStamina()));
+        label_mana->SetText("Mana : "+std::to_string(players.at(0).getMana()));
+        desktop.Update( 1.0f );
+        Gui.Display(window);
+
         curseur.draw(&window);
         //sf::View=window.getDefaultView().setCenter(players[0].getPosition());
         custom_view.setCenter(players[0].getPosition());
@@ -172,15 +195,4 @@ int main()
     effects.clear();
     std::cout<<"Fin du programme"<<std::endl;
     return 0;
-}
-
-sf::VideoMode loadVideoMode(){
-	std::ifstream config_file("config.ini", std::ios::in);  // on ouvre le fichier en lecture
-	if(config_file){
-		std::string content;
-		while(getline(config_file, content)){;}
-		config_file.close();
-	}
-	return sf::VideoMode();
-
 }
