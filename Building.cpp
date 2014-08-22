@@ -30,6 +30,7 @@ Building::Building(const sf::Texture &Img, const sf::Vector2f &Position) : Entit
 	integrity=1.0;
 	integrity_max=1000.0;
 	setTextureRect(sf::IntRect(0, 0, getTexture()->getSize().x/2, getTexture()->getSize().y/4));
+	base_size=sf::Vector2i(getTexture()->getSize().x/2, getTexture()->getSize().y/4);
 	integrity_bar.setSize(sf::Vector2f(getTextureRect().width, 2));
 	integrity_bar.setPosition(getPosition().x, getPosition().y+getTextureRect().height-2);
 	integrity_bar.setFillColor(sf::Color(0,255,0));
@@ -72,3 +73,4 @@ Character* Building::getOwner(){return m_owner;}
 void Building::draw(sf::RenderTarget *sys){if(sys!=0){
 sys->draw(*this);
 if(integrity!=integrity_max){sys->draw(integrity_bar);}}}
+sf::Vector2i Building::getSize(){return base_size;}

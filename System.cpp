@@ -27,7 +27,7 @@ System::~System(){
 	delete root_node;
 	if(base_col){delete base_col;}
 }
-void System::draw(){root_node->draw();}
+void System::drawAll(){root_node->draw();}
 Collision* System::getSystemCollision(){
     return base_col;}
 Node* System::getRootNode(){return root_node;}

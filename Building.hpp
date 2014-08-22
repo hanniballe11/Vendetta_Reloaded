@@ -28,6 +28,7 @@ public:
 	void setOwner(Character* owner);
 	Character* getOwner();
 	void draw(sf::RenderTarget* sys);
+	sf::Vector2i getSize();
 
 protected:
     Character* m_owner;
@@ -35,6 +36,7 @@ protected:
 	double integrity, integrity_max;
 	sf::RectangleShape integrity_bar;
     sf::Vector2f entry;
+    sf::Vector2i base_size;
 };
 
 #endif /* BUILDING_H_ */

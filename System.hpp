@@ -18,7 +18,7 @@ public:
 	System();
 	System(sf::VideoMode Mode, const std::string &Title, sf::Uint32 Style=sf::Style::Resize|sf::Style::Close, const sf::ContextSettings &Params=sf::ContextSettings());
 	~System();
-	void draw();
+	void drawAll();
 	Collision* getSystemCollision();
 	Node* getRootNode();
 	std::string getTitle() const;
