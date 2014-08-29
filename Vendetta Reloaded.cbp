@@ -15,6 +15,7 @@
 				<Compiler>
 					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="C:\SFML\lib\libsfml-audio-d.a" />
@@ -34,6 +35,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -59,10 +61,13 @@
 		</Linker>
 		<Unit filename="Building.cpp" />
 		<Unit filename="Building.hpp" />
+		<Unit filename="Buildings.ini" />
 		<Unit filename="Character.cpp" />
 		<Unit filename="Character.hpp" />
 		<Unit filename="Collision.cpp" />
 		<Unit filename="Collision.hpp" />
+		<Unit filename="Consumable.cpp" />
+		<Unit filename="Consumable.h" />
 		<Unit filename="Cursor.cpp" />
 		<Unit filename="Cursor.hpp" />
 		<Unit filename="Directory.cpp" />
@@ -71,9 +76,15 @@
 		<Unit filename="Effect.hpp" />
 		<Unit filename="Entity.cpp" />
 		<Unit filename="Entity.hpp" />
+		<Unit filename="Equipment.cpp" />
+		<Unit filename="Equipment.h" />
 		<Unit filename="Event.hpp" />
+		<Unit filename="INIParser.cpp" />
+		<Unit filename="INIParser.h" />
 		<Unit filename="ImageManager.cpp" />
 		<Unit filename="ImageManager.hpp" />
+		<Unit filename="Localization.cpp" />
+		<Unit filename="Localization.h" />
 		<Unit filename="Node.cpp" />
 		<Unit filename="Node.hpp" />
 		<Unit filename="Object.cpp" />
@@ -82,11 +93,14 @@
 		<Unit filename="Player.hpp" />
 		<Unit filename="Projectile.cpp" />
 		<Unit filename="Projectile.hpp" />
+		<Unit filename="Races.ini" />
 		<Unit filename="State.hpp" />
 		<Unit filename="System.cpp" />
 		<Unit filename="System.hpp" />
 		<Unit filename="Terrain.cpp" />
 		<Unit filename="Terrain.hpp" />
+		<Unit filename="Weapons.cpp" />
+		<Unit filename="Weapons.h" />
 		<Unit filename="config.ini" />
 		<Unit filename="dirent.h" />
 		<Unit filename="main.cpp" />

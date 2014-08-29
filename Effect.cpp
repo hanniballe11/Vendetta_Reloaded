@@ -16,7 +16,7 @@ Effect::Effect()
     is_active=false;
     counter=0;
 }
-Effect::Effect(const sf::Texture &Img, unsigned int anims, unsigned int states, const sf::Vector2f &Position) : Entity(Img, Position)
+Effect::Effect(const sf::Texture &Img, unsigned int anims, unsigned int states) : Entity(Img, sf::Vector2f(0,0))
 {
     current_state=0;
     nb_anim=anims;
@@ -53,6 +53,16 @@ unsigned int Effect::getState()
 {
     return current_state;
 }
+void Effect::attachEntity(Entity *entity)
+{
+    if(entity!=0){
+    m_entity_attached=entity;
+    setPosition(entity->getPosition());
+    sf::Vector2f scales(entity->getGlobalBounds().width/getGlobalBounds().width, entity->getGlobalBounds().height/getGlobalBounds().height);
+    (scales.x <= scales.y) ? setScale(scales.x, scales.x) : setScale(scales.y, scales.y);
+    }
+}
+void Effect::setPosition(sf::Vector2f pos){sf::Sprite::setPosition(pos);}
 void Effect::setTexture(sf::Texture &Img)
 {
     Entity::setTexture(Img);
@@ -70,6 +80,7 @@ void Effect::draw(sf::RenderTarget* sys)
 {
     if(is_active && sys!=0)
     {
+        if(m_entity_attached!=0){setPosition(m_entity_attached->getPosition());}
         sys->draw(*this);
     }
 }

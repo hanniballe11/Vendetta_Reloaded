@@ -12,6 +12,17 @@
 #include <iostream>
 #define COUNTERMAX 15
 
+typedef struct Race
+{
+    std::string name;
+    double attack_factor;
+    double defense_factor;
+    double stamina_factor;
+    double mana_factor;
+    double life_factor;
+    double speed_factor;
+};
+
 class Building;
 class Character: public Entity {
 public:

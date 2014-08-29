@@ -1558,7 +1558,7 @@
 	<SFML/Graphics.hpp>
 	<cstdlib>
 
-1408484731 c:\users\erwan\documents\github\vendetta_reloaded\character.hpp
+1409037804 c:\users\erwan\documents\github\vendetta_reloaded\character.hpp
 	"Entity.hpp"
 	<iostream>
 
@@ -1570,7 +1570,7 @@
 1359304376 source:c:\users\erwan\documents\github\vendetta_reloaded\collision.cpp
 	"Collision.hpp"
 
-1359077015 c:\users\erwan\documents\github\vendetta_reloaded\collision.hpp
+1408709209 c:\users\erwan\documents\github\vendetta_reloaded\collision.hpp
 	"Entity.hpp"
 	<vector>
 
@@ -1597,10 +1597,10 @@
 	<sys/stat.h>
 	<errno.h>
 
-1408574574 source:c:\users\erwan\documents\github\vendetta_reloaded\effect.cpp
+1409143017 source:c:\users\erwan\documents\github\vendetta_reloaded\effect.cpp
 	"Effect.hpp"
 
-1359305091 c:\users\erwan\documents\github\vendetta_reloaded\effect.hpp
+1409142463 c:\users\erwan\documents\github\vendetta_reloaded\effect.hpp
 	"Entity.hpp"
 	"Event.hpp"
 	<cstdlib>
@@ -1625,7 +1625,7 @@
 	<iostream>
 	"Directory.hpp"
 
-1408660499 source:c:\users\erwan\documents\github\vendetta_reloaded\main.cpp
+1409168927 source:c:\users\erwan\documents\github\vendetta_reloaded\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	<SFML/System.hpp>
@@ -1643,6 +1643,8 @@
 	"Collision.hpp"
 	"Terrain.hpp"
 	"SFGUI/SFGUI.hpp"
+	<time.h>
+	"Localization.h"
 
 1359305697 c:\users\erwan\documents\github\vendetta_reloaded\player.hpp
 	"Character.hpp"
@@ -2032,4 +2034,45 @@
 	<map>
 	<list>
 	<cstdint>
+
+1409093978 source:c:\users\erwan\documents\github\vendetta_reloaded\src\consumable.cpp
+	"Consumable.h"
+
+1409093971 c:\users\erwan\documents\github\vendetta_reloaded\include\consumable.h
+
+1409094048 source:c:\users\erwan\documents\github\vendetta_reloaded\consumable.cpp
+	"Consumable.h"
+
+1409094048 c:\users\erwan\documents\github\vendetta_reloaded\consumable.h
+	"Object.hpp"
+
+1409093356 source:c:\users\erwan\documents\github\vendetta_reloaded\equipment.cpp
+	"Equipment.h"
+
+1409093356 c:\users\erwan\documents\github\vendetta_reloaded\equipment.h
+	"Object.hpp"
+
+1409140640 source:c:\users\erwan\documents\github\vendetta_reloaded\weapons.cpp
+	"Weapons.h"
+
+1409094048 c:\users\erwan\documents\github\vendetta_reloaded\weapons.h
+	"Object.hpp"
+
+1409001126 source:c:\users\erwan\documents\github\vendetta_reloaded\iniparser.cpp
+	"INIParser.h"
+
+1409000878 c:\users\erwan\documents\github\vendetta_reloaded\iniparser.h
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<map>
+
+1409169033 source:c:\users\erwan\documents\github\vendetta_reloaded\localization.cpp
+	"Localization.h"
+
+1409169033 c:\users\erwan\documents\github\vendetta_reloaded\localization.h
+	<map>
+	"INIParser.h"
 

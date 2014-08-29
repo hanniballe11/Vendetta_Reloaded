@@ -17,10 +17,12 @@
 class Effect: public Entity {
 public:
 	Effect();
-	Effect(const sf::Texture &Img, unsigned int anims, unsigned int states, const sf::Vector2f &Position=sf::Vector2f(0, 0));
+	Effect(const sf::Texture &Img, unsigned int anims, unsigned int states);
 	virtual ~Effect();
 	void update();
 	unsigned int getState();
+	void attachEntity(Entity *entity);
+	void setPosition(sf::Vector2f pos);
 	void setTexture(sf::Texture &Img);
 	bool getActive();
 	void activate();
@@ -28,6 +30,7 @@ public:
 protected:
 	unsigned int current_state, nb_anim, nb_state, random_anim, counter;
 	bool is_active;
+	Entity *m_entity_attached;
 };
 
 #endif /* EFFECT_H_ */
