@@ -2,7 +2,7 @@
 
 Equipment::Equipment()
 {
-    //ctor
+    m_type=O_EQUIPMENT;
 }
 
 Equipment::~Equipment()

@@ -2,7 +2,7 @@
 
 Consumable::Consumable()
 {
-    //ctor
+    m_type=O_CONSUMABLE;
 }
 
 Consumable::~Consumable()

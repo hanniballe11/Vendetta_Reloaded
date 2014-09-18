@@ -16,19 +16,26 @@ public:
 	Building();
 	Building(const sf::Texture &Img, const sf::Vector2f &Position=sf::Vector2f(0, 0));
 	virtual ~Building();
-	void update();
-	unsigned int getIntegrity() const;
-	unsigned int getMaxIntegrity() const;
-	sf::Shape& getIntegrityBar();
-	void setIntegrity(unsigned int value);
+
+	void repair(double amount);
+	void takeDamage(double damage);
+
+	void setIntegrity(double value);
+	void setOwner(Character* owner);
 	void setEntryPoint(int x, int y);
+
+	double getIntegrity() const;
+	double getMaxIntegrity() const;
+	bool getConstructed();
+	Character* getOwner();
+
 	sf::Vector2f getEntryLocal();
 	sf::Vector2f getEntryGlobal();
-	bool getConstructed();
-	void setOwner(Character* owner);
-	Character* getOwner();
-	void draw(sf::RenderTarget* sys);
 	sf::Vector2i getSize();
+	sf::Shape& getIntegrityBar();
+
+	void update();
+	void draw(sf::RenderTarget* sys);
 
 protected:
     Character* m_owner;

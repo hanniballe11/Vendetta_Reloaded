@@ -10,7 +10,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
-//#include "Node.hpp"
+
 enum EntityType{
 	ENTITY,
 	CHARACTER,

@@ -2,7 +2,7 @@
 
 Weapons::Weapons() : Object()
 {
-    //ctor
+    m_type=O_WEAPON;
 }
 
 Weapons::~Weapons()

@@ -35,6 +35,26 @@ int main() {
     window.setSystemCollision(800.f,600.f,8,6);
     sf::View custom_view(sf::FloatRect(0.f,0.f,window.getSize().x, window.getSize().y));
     std::cout<<" Reussite"<<std::endl;
+    std::cout<<"Données..."<<std::endl;
+    std::cout<<"    Races: ";
+    std::map<string, Race> races;
+    INIParser ini_donnees;
+    ini_donnees.loadFromFile("races.ini");
+    std::vector<string> race_names=ini_donnees.getSections();
+    for(int i=0; i<race_names.size(); i++)
+    {
+        Race temp_race;
+        temp_race.name=race_names[i];
+        temp_race.base_attack=atof(ini_donnees.getValue(race_names[i], "base_attack").c_str());
+        temp_race.base_defense=atof(ini_donnees.getValue(race_names[i], "base_defense").c_str());
+        temp_race.base_life=atof(ini_donnees.getValue(race_names[i], "base_life").c_str());
+        temp_race.base_stamina=atof(ini_donnees.getValue(race_names[i], "base_stamina").c_str());
+        temp_race.base_mana=atof(ini_donnees.getValue(race_names[i], "base_mana").c_str());
+        temp_race.base_speed=atof(ini_donnees.getValue(race_names[i], "base_speed").c_str());
+        races[temp_race.name]=temp_race;
+    }
+    std::cout<<"OK"<<std::endl;
+    std::cout<<" Reussite"<<std::endl;
     std::cout<<"Images....";
     ImageManager manager("vendetta.cfg");
     std::cout<<" Reussite"<<std::endl;
@@ -58,17 +78,22 @@ int main() {
     std::vector<Character> sprites;
     sprites.push_back(Character(manager.getTexture("white_boy")));
     sprites[0].setPosition(700.f,200.f);
+    sprites[0].setRace(races["Humans"]);
     sprites.push_back(Character(manager.getTexture("black_officer")));
     sprites[1].setPosition(200.f,400.f);
+    sprites[1].setRace(races["Humans"]);
     sprites.push_back(Character(manager.getTexture("farmer")));
     sprites[2].setPosition(400.f,200.f);
+    sprites[2].setRace(races["Humans"]);
     sprites.push_back(Character(manager.getTexture("red_boy")));
     sprites[3].setPosition(400.f,400.f);
+    sprites[3].setRace(races["Humans"]);
     std::cout<<"OK"<<std::endl;
 
     std::cout<<"   Players: ";
     std::vector<Player> players;
     players.push_back(Player(manager.getTexture("mysterious_blue_man")));
+    players[0].setRace(races["Humans"]);
     std::cout<<"OK"<<std::endl;
 
     std::cout<<"   Buildings: ";
@@ -123,6 +148,23 @@ int main() {
     frame_perso->SetTitle( "Perso Stats" );
     frame_perso->Add(layout_v_perso);
     desktop.Add(frame_perso);
+    ///Building GUI
+    auto frame_building=sfg::Window::Create();
+    auto layout_v_building = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
+    auto label_owner = sfg::Label::Create("[OWNER_NAME]");
+    auto label_building_life = sfg::Label::Create("[BUILDING_LIFE]/[BUILDING_LIFE_MAX]");
+    layout_v_building->Pack(label_owner);
+    layout_v_building->Pack(label_building_life);
+    frame_building->SetTitle( "[BUILDING_NAME]" );
+    frame_building->Add(layout_v_building);
+    frame_building->Show(false);
+    desktop.Add(frame_building);
+    ///Construction GUI
+    auto frame_build=sfg::Window::Create();
+    auto layout_table_build = sfg::Table::Create();
+    frame_build->SetTitle( "List Constructions" );
+    frame_build->Add(layout_table_build);
+    desktop.Add(frame_build);
     ///Menu GUI
     auto frame_menu=sfg::Window::Create();
     auto layout_v_menu = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
@@ -141,9 +183,6 @@ int main() {
     frame_menu->Show(false);
     desktop.Add(frame_menu);
     std::cout<<" Reussite"<<std::endl;
-    std::cout<<"Races.....";
-    std::map<std::string, Race> races;
-
     std::cout<<"Fin Initialisation"<<std::endl;
 
     window.initializeCol();
@@ -159,8 +198,9 @@ int main() {
                 sprites.at(i).goTo(sf::Vector2f(float (rand() % 801), float (rand() % 601)));
             }
         }
+        curseur.setIcon(manager.getTexture("fleche2"));
+        curseur.setCursorPosition(window.mapPixelToCoords(sf::Mouse::getPosition(window)));
         while (window.pollEvent(event)) {
-            desktop.HandleEvent( event );
             ///Ferme la fenetre quand on clique sur la croix
             if (event.type == sf::Event::Closed) {
                 window.close();
@@ -175,20 +215,13 @@ int main() {
             if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
                 frame_menu->Show(!frame_menu->IsGloballyVisible());
             }
-            if(event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+            if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left){curseur.setIcon(manager.getTexture("fleche1"));}
+            else if(event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
                 bool action=false;
                 sf::Vector2f pos_click(curseur.getPosition());
-                curseur.setIcon(manager.getTexture("fleche1"));
                 if(pos_click.x>0 && pos_click.y>0) {
                     ///try to build
                     bool onGui=false;
-                    if(frame_menu->IsGloballyVisible()){
-                        sf::FloatRect frame_bounds(window.mapPixelToCoords((sf::Vector2i)(frame_menu->GetAbsolutePosition())).x,
-                                                    window.mapPixelToCoords((sf::Vector2i)(frame_menu->GetAbsolutePosition())).y,
-                                                    frame_menu->GetAllocation().width,
-                                                    frame_menu->GetAllocation().height);
-                        if(frame_bounds.contains(curseur.getPosition())){onGui=true;}
-                    }
                     if(frame_perso->IsGloballyVisible() && !onGui){
                         sf::FloatRect frame_bounds(window.mapPixelToCoords((sf::Vector2i)(frame_perso->GetAbsolutePosition())).x,
                                                     window.mapPixelToCoords((sf::Vector2i)(frame_perso->GetAbsolutePosition())).y,
@@ -196,7 +229,7 @@ int main() {
                                                     frame_perso->GetAllocation().height);
                         if(frame_bounds.contains(curseur.getPosition())){onGui=true;}
                     }
-                    if(!onGui) {
+                    if(!onGui && !frame_menu->IsGloballyVisible()) {
                         if(player_try_build) {
                             if(build_possible) {
                                 for(int i=0; i<buildings.size(); i++) {
@@ -211,12 +244,12 @@ int main() {
                                 n_buildings.addEntity(&buildings[buildings.size()-1]);
                                 player_try_build=!player_try_build;
                                 players[0].setOwner(&buildings[buildings.size()-1]);
-                                players[0].repair(players[0].getOwner());
+                                players[0].orderToRepair(players[0].getOwner());
                             }
                         } else {
                             for(int i=0; i<sprites.size(); i++) {
                                 if(sprites[i].getGlobalBounds().contains(curseur.getPosition().x, curseur.getPosition().y)) {
-                                    players[0].attack(&sprites[i]);
+                                    players[0].orderToAttack(&sprites[i]);
                                     action=true;
                                     break;
                                 }
@@ -225,10 +258,10 @@ int main() {
                                 for(int i=0; i<buildings.size(); i++) {
                                     if(buildings[i].getGlobalBounds().contains(curseur.getPosition().x, curseur.getPosition().y)) {
                                         if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
-                                            players[0].repair(&buildings[i]);
+                                            players[0].orderToRepair(&buildings[i]);
                                             action=true;
                                         } else {
-                                            players[0].enter(&buildings[i]);
+                                            players[0].orderToEnter(&buildings[i]);
                                             action=true;
                                         }
                                         break;
@@ -248,58 +281,73 @@ int main() {
                     }
                 }
             }
+            desktop.HandleEvent( event );
             if(event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Right) {
-                if(player_try_build) {
-                player_try_build=false;
+                if(!frame_menu->IsGloballyVisible()){
+                    if(player_try_build) {
+                    player_try_build=false;
+                    }
                 }
             }
-            if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::B) {
-                build_surface.setSize(sf::Vector2f(buildings[0].getSize()));
-                player_try_build=true;
+            ///Remet le curseur à la position de la souris avec la texture normale
+            if(!frame_menu->IsGloballyVisible()){
+                if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::B) {
+                    /*build_surface.setSize(sf::Vector2f(buildings[0].getSize()));
+                    player_try_build=true;*/
+                    if(players[0].getBuildingIn()!=0 && !frame_building->IsGloballyVisible()){
+                            frame_building->SetTitle("Building Test");
+                            label_owner->SetText("Test Owner");
+                            label_building_life->SetText("Integrity Owner");
+                            frame_building->Show(true);
+                    }
+                    else{frame_building->Show(false);}
+                }
+                if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::R) {
+                    players[0].setRace(races["Elves"]);
+                }
+                ///Deplace le joueur
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+                    if(players[0].getPosition().y>0) {
+                    players[0].goUp();
+                    }
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+                    if(players[0].getPosition().y<600) {
+                        players[0].goDown();
+                    }
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+                    if(players[0].getPosition().x>0) {
+                        players[0].goLeft();
+                    }
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+                    if(players[0].getPosition().x<800) {
+                        players[0].goRight();
+                    }
+                }
             }
         }
-        ///Remet le curseur à la position de la souris avec la texture normale
-        curseur.setIcon(manager.getTexture("fleche2"));
-        curseur.setCursorPosition(window.mapPixelToCoords(sf::Mouse::getPosition(window)));
-        ///Deplace le joueur
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-            if(players[0].getPosition().y>0) {
-                players[0].goUp();
+        if(!frame_menu->IsGloballyVisible()){
+            for(unsigned int i=0; i<buildings.size(); i++) {            ///Buildings update
+                buildings[i].update();
+            }
+            for(unsigned int i=0; i<sprites.size(); i++) {              ///Characters update
+                sprites[i].update();
+            }
+            for(unsigned int i=0; i<players.size(); i++) {              ///Players update
+                players[i].update();
+            }
+            for(unsigned int i=0; i<effects.size(); i++) {              ///Effects update
+                effects[i]->update();
+                if(!effects[i]->getActive()) {
+                    std::vector<Effect*>::iterator it_effect;
+                    it_effect=effects.begin()+i;
+                    effects.erase(it_effect);
+                }
             }
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-            if(players[0].getPosition().y<600) {
-                players[0].goDown();
-            }
-        }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            if(players[0].getPosition().x>0) {
-                players[0].goLeft();
-            }
-        }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            if(players[0].getPosition().x<800) {
-                players[0].goRight();
-            }
-        }
-
-        for(unsigned int i=0; i<buildings.size(); i++) {            ///Buildings update
-            buildings[i].update();
-        }
-        for(unsigned int i=0; i<sprites.size(); i++) {              ///Characters update
-            sprites[i].update();
-        }
-        for(unsigned int i=0; i<players.size(); i++) {              ///Players update
-            players[i].update();
-        }
-        for(unsigned int i=0; i<effects.size(); i++) {              ///Effects update
-            effects[i]->update();
-            if(!effects[i]->getActive()) {
-                std::vector<Effect*>::iterator it_effect;
-                it_effect=effects.begin()+i;
-                effects.erase(it_effect);
-            }
-        }
+        else{player_try_build=false;} ///Annule la tentative de construction si il y a le menu principal
         window.clear();
         terrain.draw(&window);
         window.drawAll();
@@ -332,7 +380,6 @@ int main() {
         window.setView(custom_view);
         window.display();
     }
-    window.getSystemCollision()->update();
     effects.clear();
     std::cout<<"Fin du programme"<<std::endl;
     return 0;

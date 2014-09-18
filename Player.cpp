@@ -24,25 +24,25 @@ Player::~Player() {
 }
 void Player::goUp(){
 	if(!is_blocked){
-	current_goto.y=getPosition().y-speed;
+	current_goto.y=getPosition().y-m_race.base_speed;
 	man_move_y=true;
 	if(!man_move_x){current_goto.x=getPosition().x;}}
 }
 void Player::goDown(){
 	if(!is_blocked){
-	current_goto.y=getPosition().y+speed;
+	current_goto.y=getPosition().y+m_race.base_speed;
 	man_move_y=true;
 	if(!man_move_x){current_goto.x=getPosition().x;}}
 }
 void Player::goLeft(){
 	if(!is_blocked){
-	current_goto.x=getPosition().x-speed;
+	current_goto.x=getPosition().x-m_race.base_speed;
 	man_move_x=true;
 	if(!man_move_y){current_goto.y=getPosition().y;}}
 }
 void Player::goRight(){
 	if(!is_blocked){
-	current_goto.x=getPosition().x+speed;
+	current_goto.x=getPosition().x+m_race.base_speed;
 	man_move_x=true;
 	if(!man_move_y){current_goto.y=getPosition().y;}}
 }

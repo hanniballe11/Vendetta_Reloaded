@@ -8,22 +8,37 @@
 #ifndef OBJECT_H_
 #define OBJECT_H_
 
-#include "Character.hpp"
+#include "Entity.hpp"
 #include <string>
 
+enum ObjectType{
+	O_NOT_USE=-1,
+	O_CONSUMABLE,
+	O_EQUIPMENT,
+	O_WEAPON,
+};
+
+class Character;
 class Object: public Entity {
 public:
 	Object();
 	Object(const sf::Texture &Img, std::string data, const sf::Vector2f &Position=sf::Vector2f(0, 0));
 	virtual ~Object();
+
 	bool isInfinite();
-	void setInfinite(bool value);
+
+	ObjectType getType();
 	unsigned int getUse();
-	void setUse(unsigned int value);
 	unsigned int getUseMax();
+
+	void setUse(unsigned int value);
 	void setUseMax(unsigned int value);
+	void setInfinite(bool value);
+
 	bool use(Character *user, Character *opponent=0);
+
 protected:
+    ObjectType m_type;
 	bool infinite;
 	unsigned int nb_use, max_use;
 	std::string name, data_values;

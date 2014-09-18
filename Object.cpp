@@ -5,10 +5,12 @@
  *      Author: Erwann
  */
 
+#include "Character.hpp"
 #include "Object.hpp"
 
 Object::Object() : Entity(){
 	e_type=OBJECT;
+	m_type=O_NOT_USE;
 	infinite=false;
 	nb_use=0;
 	max_use=1;
@@ -35,3 +37,5 @@ bool Object::use(Character *user, Character *opponent){
 	}
 	else{return false;}
 }
+
+ObjectType Object::getType(){return m_type;}

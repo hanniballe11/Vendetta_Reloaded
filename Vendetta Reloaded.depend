@@ -1546,26 +1546,27 @@
 	<string>
 	<vector>
 
-1408537948 source:c:\users\erwan\documents\github\vendetta_reloaded\building.cpp
+1410908453 source:c:\users\erwan\documents\github\vendetta_reloaded\building.cpp
 	"Building.hpp"
 	"Character.hpp"
 
-1408537948 c:\users\erwan\documents\github\vendetta_reloaded\building.hpp
+1410904916 c:\users\erwan\documents\github\vendetta_reloaded\building.hpp
 	"Entity.hpp"
 	<iostream>
 
-1359334741 c:\users\erwan\documents\github\vendetta_reloaded\entity.hpp
+1410957238 c:\users\erwan\documents\github\vendetta_reloaded\entity.hpp
 	<SFML/Graphics.hpp>
 	<cstdlib>
 
-1409037804 c:\users\erwan\documents\github\vendetta_reloaded\character.hpp
-	"Entity.hpp"
+1411042298 c:\users\erwan\documents\github\vendetta_reloaded\character.hpp
 	<iostream>
+	<vector>
+	"Entity.hpp"
+	"Object.hpp"
 
-1408488512 source:c:\users\erwan\documents\github\vendetta_reloaded\character.cpp
+1411042298 source:c:\users\erwan\documents\github\vendetta_reloaded\character.cpp
 	"Character.hpp"
 	"Building.hpp"
-	<iostream>
 
 1359304376 source:c:\users\erwan\documents\github\vendetta_reloaded\collision.cpp
 	"Collision.hpp"
@@ -1625,7 +1626,7 @@
 	<iostream>
 	"Directory.hpp"
 
-1409168927 source:c:\users\erwan\documents\github\vendetta_reloaded\main.cpp
+1411043594 source:c:\users\erwan\documents\github\vendetta_reloaded\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	<SFML/System.hpp>
@@ -1664,14 +1665,15 @@
 	"Entity.hpp"
 	"System.hpp"
 
-1359305663 source:c:\users\erwan\documents\github\vendetta_reloaded\object.cpp
+1410977111 source:c:\users\erwan\documents\github\vendetta_reloaded\object.cpp
+	"Character.hpp"
 	"Object.hpp"
 
-1359305663 c:\users\erwan\documents\github\vendetta_reloaded\object.hpp
-	"Character.hpp"
+1410976887 c:\users\erwan\documents\github\vendetta_reloaded\object.hpp
+	"Entity.hpp"
 	<string>
 
-1408487883 source:c:\users\erwan\documents\github\vendetta_reloaded\player.cpp
+1410697781 source:c:\users\erwan\documents\github\vendetta_reloaded\player.cpp
 	"Player.hpp"
 
 1359305782 source:c:\users\erwan\documents\github\vendetta_reloaded\projectile.cpp
@@ -2040,19 +2042,19 @@
 
 1409093971 c:\users\erwan\documents\github\vendetta_reloaded\include\consumable.h
 
-1409094048 source:c:\users\erwan\documents\github\vendetta_reloaded\consumable.cpp
+1410977147 source:c:\users\erwan\documents\github\vendetta_reloaded\consumable.cpp
 	"Consumable.h"
 
 1409094048 c:\users\erwan\documents\github\vendetta_reloaded\consumable.h
 	"Object.hpp"
 
-1409093356 source:c:\users\erwan\documents\github\vendetta_reloaded\equipment.cpp
+1410977153 source:c:\users\erwan\documents\github\vendetta_reloaded\equipment.cpp
 	"Equipment.h"
 
 1409093356 c:\users\erwan\documents\github\vendetta_reloaded\equipment.h
 	"Object.hpp"
 
-1409140640 source:c:\users\erwan\documents\github\vendetta_reloaded\weapons.cpp
+1410977159 source:c:\users\erwan\documents\github\vendetta_reloaded\weapons.cpp
 	"Weapons.h"
 
 1409094048 c:\users\erwan\documents\github\vendetta_reloaded\weapons.h
